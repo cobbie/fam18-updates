@@ -5,11 +5,11 @@
       <b-progress class="w-75 mb-3 progress" :value="value" variant="success"></b-progress>
     </div>
     <h2>Update # {{ update }}:</h2>
-    <h1>{{ updateText[update] }}</h1>
+    <h1 class="animate__animated animate__pulse animate__repeat-3">{{ updateText[update] }}</h1>
     <div>
       Priority level:
-      <b-icon icon="star-fill" variant="warning"></b-icon>
-      <b-icon icon="star-fill" variant="warning"></b-icon>
+      <b-icon :icon="stars[0]" variant="warning"></b-icon>
+      <b-icon :icon="stars[1]" variant="warning"></b-icon>
       <b-icon icon="star-fill" variant="warning"></b-icon>
       <b-icon icon="star-fill" variant="warning"></b-icon>
       <b-icon icon="star-fill" variant="warning"></b-icon>
@@ -28,6 +28,7 @@
 
 <script>
 import Vue from "vue";
+import "animate.css"
 import {
   BootstrapVue,
   IconsPlugin,
@@ -50,8 +51,8 @@ export default {
     },
   data() {
     return {
-      value: 20,
-      update: 1,
+      value: 0,
+      update: 0,
       updateText: [
         "Hello",
         "Thesis",
@@ -60,7 +61,8 @@ export default {
         "Internship at P&G",
         "No title. Just words."
       ],
-      start: [true, true, false, false, false]
+      start: [true, true, false, false, false],
+      stars: ["star-fill", "star","star","star","star",]
     };
   },
 
@@ -104,5 +106,9 @@ h1 {
 
 h2 {
   margin-top: 50px;
+}
+
+.updatetext{
+
 }
 </style>
